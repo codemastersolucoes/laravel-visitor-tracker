@@ -1,12 +1,12 @@
 {
-    "name": "voerro/laravel-visitor-tracker",
-    "description": "Visitor tracker and statistics for Laravel 5",
+    "name": "codemastersolucoes/laravel-visitor-tracker",
+    "description": "Visitor tracker and statistics for Laravel 5. Package forked from voerro/laravel-visitor-tracker.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Alexander Zavyalov",
-            "email": "alex@voerro.com"
+            "name": "Gilson Gabriel",
+            "email": "gilson@codemastersolucoes.com"
         }
     ],
     "minimum-stability": "stable",
@@ -27,21 +27,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Voerro\\Laravel\\VisitorTracker\\": "src/"
+            "CodeMaster\\Laravel\\VisitorTracker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Voerro\\Laravel\\VisitorTracker\\Test\\": "tests/"
+            "CodeMaster\\Laravel\\VisitorTracker\\Test\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Voerro\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
+                "CodeMaster\\Laravel\\VisitorTracker\\VisitorTrackerServiceProvider"
             ],
             "aliases": {
-                "VisitStats": "Voerro\\Laravel\\VisitorTracker\\Facades\\VisitStats"
+                "VisitStats": "CodeMaster\\Laravel\\VisitorTracker\\Facades\\VisitStats"
             }
         }
     }

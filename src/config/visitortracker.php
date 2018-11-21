@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'connection' => env('VISITOR_TRACKER_CONNECTION', config('database.default')),
     /*
     |--------------------------------------------------------------------------
     | Don't record requests with the following field values
@@ -160,7 +161,7 @@ return [
     |
     */
 
-    'datetime_format' => 'd M Y, H:i:s',
+    'datetime_format' => 'd/m/Y H:i:s',
 
-    'timezone' => 'Asia/Manila',
+    'timezone' => 'America/Sao_Paulo',
 ];

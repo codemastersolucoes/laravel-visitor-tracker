@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker;
+namespace CodeMaster\Laravel\VisitorTracker;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -67,23 +67,23 @@ class VisitStats
     public static function routes()
     {
         // Summary
-        Route::get('/stats', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@summary')->name('visitortracker.summary');
+        Route::get('/stats', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@summary')->name('visitortracker.summary');
 
         // Visits
-        Route::get('/stats/all', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@allRequests')->name('visitortracker.all_requests');
-        Route::get('/stats/visits', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@visits')->name('visitortracker.visits');
-        Route::get('/stats/ajax', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@ajaxRequests')->name('visitortracker.ajax_requests');
-        Route::get('/stats/bots', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@bots')->name('visitortracker.bots');
-        Route::get('/stats/login-attempts', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@loginAttempts')->name('visitortracker.login_attempts');
+        Route::get('/stats/all', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@allRequests')->name('visitortracker.all_requests');
+        Route::get('/stats/visits', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@visits')->name('visitortracker.visits');
+        Route::get('/stats/ajax', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@ajaxRequests')->name('visitortracker.ajax_requests');
+        Route::get('/stats/bots', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@bots')->name('visitortracker.bots');
+        Route::get('/stats/login-attempts', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@loginAttempts')->name('visitortracker.login_attempts');
 
         // Grouped visits
-        Route::get('/stats/countries', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@countries')->name('visitortracker.countries');
-        Route::get('/stats/os', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@os')->name('visitortracker.os');
-        Route::get('/stats/browsers', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@browsers')->name('visitortracker.browsers');
-        Route::get('/stats/languages', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@languages')->name('visitortracker.languages');
-        Route::get('/stats/unique', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@unique')->name('visitortracker.unique');
-        Route::get('/stats/users', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@users')->name('visitortracker.users');
-        Route::get('/stats/urls', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@urls')->name('visitortracker.urls');
+        Route::get('/stats/countries', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@countries')->name('visitortracker.countries');
+        Route::get('/stats/os', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@os')->name('visitortracker.os');
+        Route::get('/stats/browsers', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@browsers')->name('visitortracker.browsers');
+        Route::get('/stats/languages', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@languages')->name('visitortracker.languages');
+        Route::get('/stats/unique', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@unique')->name('visitortracker.unique');
+        Route::get('/stats/users', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@users')->name('visitortracker.users');
+        Route::get('/stats/urls', '\CodeMaster\Laravel\VisitorTracker\Controllers\StatisticsController@urls')->name('visitortracker.urls');
     }
 
     /**

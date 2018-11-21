@@ -1,10 +1,10 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Test;
+namespace CodeMaster\Laravel\VisitorTracker\Test;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Voerro\Laravel\VisitorTracker\Tracker;
-use Voerro\Laravel\VisitorTracker\Models\Visit;
+use CodeMaster\Laravel\VisitorTracker\Tracker;
+use CodeMaster\Laravel\VisitorTracker\Models\Visit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User;
 

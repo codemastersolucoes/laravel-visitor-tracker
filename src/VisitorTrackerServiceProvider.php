@@ -1,6 +1,6 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker;
+namespace CodeMaster\Laravel\VisitorTracker;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -32,7 +32,8 @@ class VisitorTrackerServiceProvider extends ServiceProvider
     public function boot()
     {
         // Migrations
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->copy_directory(__DIR__ . '/database/migrations', __DIR__ . '/../../../../database/migrations');
 
         // Config
         $this->publishes([
@@ -50,5 +51,34 @@ class VisitorTrackerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/views' => resource_path('views/vendor/visitstats')
         ]);
+    }
+
+    private function copy_directory($directory, $destiny, $see_action = false){
+        if ($destiny{strlen($destiny) - 1} == '/'){
+            $destiny = substr($destiny, 0, -1);
+        }
+
+        if (!is_dir($destiny)){
+            if ($see_action){
+                echo "Creating directory {$destiny}\n";
+            }
+            mkdir($destiny, 0755);
+        }
+
+        $folder = opendir($directory);
+
+        while ($item = readdir($folder)){
+            if ($item == '.' || $item == '..'){
+                continue;
+            }
+            if (is_dir("{$directory}/{$item}")){
+                $this->copy_directory("{$directory}/{$item}", "{$destiny}/{$item}", $see_action);
+            }else{
+                if ($see_action){
+                    echo "Copying {$item} to {$destiny}"."\n";
+                }
+                copy("{$directory}/{$item}", "{$destiny}/{$item}");
+            }
+        }
     }
 }

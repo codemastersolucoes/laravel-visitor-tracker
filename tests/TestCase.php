@@ -1,9 +1,9 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Test;
+namespace CodeMaster\Laravel\VisitorTracker\Test;
 
-use Voerro\Laravel\VisitorTracker\VisitorTrackerServiceProvider;
-use Voerro\Laravel\VisitorTracker\Tracker;
+use CodeMaster\Laravel\VisitorTracker\VisitorTrackerServiceProvider;
+use CodeMaster\Laravel\VisitorTracker\Tracker;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
@@ -11,7 +11,7 @@ class TestCase extends OrchestraTestCase
     /**
      * Load package service provider
      * @param  \Illuminate\Foundation\Application $app
-     * @return Voerro\Laravel\VisitorTracker\VisitorTrackerServiceProvider
+     * @return CodeMaster\Laravel\VisitorTracker\VisitorTrackerServiceProvider
      */
     protected function getPackageProviders($app)
     {

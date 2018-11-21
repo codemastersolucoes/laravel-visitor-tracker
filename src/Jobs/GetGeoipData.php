@@ -1,14 +1,14 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Jobs;
+namespace CodeMaster\Laravel\VisitorTracker\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Voerro\Laravel\VisitorTracker\Models\Visit;
-use Voerro\Laravel\VisitorTracker\Geoip;
+use CodeMaster\Laravel\VisitorTracker\Models\Visit;
+use CodeMaster\Laravel\VisitorTracker\Geoip;
 
 class GetGeoipData implements ShouldQueue
 {

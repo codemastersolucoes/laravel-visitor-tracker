@@ -1,8 +1,8 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Geoip;
+namespace CodeMaster\Laravel\VisitorTracker\Geoip;
 
-use Voerro\Laravel\VisitorTracker\Models\Visit;
+use CodeMaster\Laravel\VisitorTracker\Models\Visit;
 use GuzzleHttp\Client;
 
 abstract class Driver
@@ -17,7 +17,7 @@ abstract class Driver
     /**
      * Fetch data from a remote geoapi service
      *
-     * @param Voerro\Laravel\VisitorTracker\Models\Visit $visit
+     * @param CodeMaster\Laravel\VisitorTracker\Models\Visit $visit
      * @return $this
      */
     public function getDataFor(Visit $visit)

@@ -1,10 +1,10 @@
 <?php
 
-namespace Voerro\Laravel\VisitorTracker\Test;
+namespace CodeMaster\Laravel\VisitorTracker\Test;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Voerro\Laravel\VisitorTracker\VisitStats;
-use Voerro\Laravel\VisitorTracker\Models\Visit;
+use CodeMaster\Laravel\VisitorTracker\VisitStats;
+use CodeMaster\Laravel\VisitorTracker\Models\Visit;
 use Carbon\Carbon;
 
 class StatsTest extends TestCase

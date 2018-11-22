@@ -171,7 +171,7 @@ class VisitStats
                         MAX(id) AS max_id,
                         COUNT(*) AS visits_count,
                         COUNT(DISTINCT ip) AS visitors_count
-                    FROM visitortracker_visits
+                    FROM visits
                     
                     {$where}
                     GROUP BY {$field}
@@ -324,7 +324,7 @@ class VisitStats
     }
 
     /**
-     * Forms a basic query to fetch all the fields from the visitortracker_visits table
+     * Forms a basic query to fetch all the fields from the visits table
      *
      * @return void
      */
@@ -332,7 +332,7 @@ class VisitStats
     {
         $this->sqlSelect = 'SELECT v.*';
 
-        $this->sql = ' FROM visitortracker_visits v';
+        $this->sql = ' FROM visits v';
 
         return $this;
     }

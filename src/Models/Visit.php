@@ -8,8 +8,6 @@ class Visit extends Model
 {
     protected $connection = 'visits_tracker';
 
-    protected $table = 'visitortracker_visits';
-
     protected $guarded = [];
 
     protected $casts = [

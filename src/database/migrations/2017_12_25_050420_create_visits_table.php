@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVisitorTrackerVisitsTable extends Migration
+class CreateVisitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVisitorTrackerVisitsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('visits_tracker')->create('visitortracker_visits', function (Blueprint $table) {
+        Schema::connection('visits_tracker')->create('visits', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('user_id')->nullable();
                 $table->string('ip', 40);
@@ -54,6 +54,6 @@ class CreateVisitorTrackerVisitsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('visits_tracker')->dropIfExists('visitortracker_visits');
+        Schema::connection('visits_tracker')->dropIfExists('visits');
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'connection' => env('VISITOR_TRACKER_CONNECTION', config('database.default')),
     /*
     |--------------------------------------------------------------------------
     | Don't record requests with the following field values

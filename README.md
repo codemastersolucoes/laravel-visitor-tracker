@@ -64,6 +64,55 @@ php artisan vendor:publish
 
 Choose `CodeMaster\Laravel\VisitorTracker\VisitorTrackerServiceProvider` in the provided list.
 
+6) Create a connection, named `visits_tracker` for Laravel Visitor Tracker on `config/databases.php`, connection name can not be changed
+Examples:
+#MySql
+```php
+'visits_tracker' => [
+    'driver' => 'mysql',
+    'host' => env('DB_HOST', '127.0.0.1'),
+    'port' => env('DB_PORT', '3306'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'unix_socket' => env('DB_SOCKET', ''),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'strict' => true,
+    'engine' => null,
+],
+```
+#MySql
+```php
+'visits_tracker' => [
+    'driver' => 'pgsql',
+    'host' => env('DB_HOST', '127.0.0.1'),
+    'port' => env('DB_PORT', '5432'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'charset' => 'utf8',
+    'prefix' => '',
+    'schema' => 'public',
+    'sslmode' => 'prefer',
+],
+```
+#Sql Server
+```php
+'visits_tracker' => [
+    'driver' => 'sqlsrv',
+    'host' => env('DB_HOST', 'localhost'),
+    'port' => env('DB_PORT', '1433'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'charset' => 'utf8',
+    'collation' => 'SQL_Latin1_General_CP1_CI_AS',
+    'prefix' => '',
+],
+```
+
 ## Installation - Geoapi
 
 The tracker uses external API to fetch the geolocation data. To turn geoapi off set the `geoip_on` setting in the config file to false. To change a provider change the `geoip_driver` field. The supported drivers are listed in the configuration file. You might need to fill out additional API keys depending on the driver you choose.
@@ -76,10 +125,6 @@ First, in your `.env` file you need to set:
 QUEUE_DRIVER=database
 ```
 
-Optionally, you can define a connection other than the default application connection
-```php
-VISITOR_TRACKER_CONNECTION=your_connection_name
-```
 Then run these commands one after another:
 
 ```bash

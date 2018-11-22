@@ -13,8 +13,7 @@ class CreateVisitorTrackerVisitsTable extends Migration
      */
     public function up()
     {
-        Schema::connection(config('visitortracker.connection'))->create('visitortracker_visits',
-            function (Blueprint $table) {
+        Schema::connection('visits_tracker')->create('visitortracker_visits', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('user_id')->nullable();
                 $table->string('ip', 40);
@@ -55,6 +54,6 @@ class CreateVisitorTrackerVisitsTable extends Migration
      */
     public function down()
     {
-        Schema::connection(config('visitortracker.connection'))->dropIfExists('visitortracker_visits');
+        Schema::connection('visits_tracker')->dropIfExists('visitortracker_visits');
     }
 }

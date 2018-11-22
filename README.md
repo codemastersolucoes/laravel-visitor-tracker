@@ -1,6 +1,6 @@
 # Laravel Visitor Tracker and Statistics
 
-[![Packagist](https://img.shields.io/packagist/v/voerro/laravel-visitor-tracker.svg?style=flat-square)](https://packagist.org/packages/voerro/laravel-visitor-tracker) [![Packagist](https://img.shields.io/packagist/dm/voerro/laravel-visitor-tracker.svg?style=flat-square)](https://packagist.org/packages/voerro/laravel-visitor-tracker) [![Build Status](https://travis-ci.org/voerro/laravel-visitor-tracker.svg?branch=master)](https://travis-ci.org/voerro/laravel-visitor-tracker) [![StyleCI](https://styleci.io/repos/116011849/shield?branch=master)](https://styleci.io/repos/116011849) [![Packagist](https://img.shields.io/packagist/l/voerro/laravel-visitor-tracker.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+This package has been forked from [voerro/laravel-visitor-tracker](https://github.com/voerro/laravel-visitor-tracker) and modified by [codemastersolucoes/laravel-visitor-tracker](https://github.com/codemastersolucoes/laravel-visitor-tracker)
 
 Track your authenticated and unauthenticated visitors, login attempts, ajax requests, and more. Includes a controller and a bunch of routes and views to display the statistics, as well as a helper class to fetch the statistics easily (in case you want to display the statistics yourself).
 
@@ -10,7 +10,7 @@ Track your authenticated and unauthenticated visitors, login attempts, ajax requ
 1) Install the package using composer:
 
 ```bash
-composer require voerro/laravel-visitor-tracker
+composer require CodeMaster/laravel-visitor-tracker
 ```
 
 2) Run the migration to install the package's table to record visits to by executing:
@@ -26,7 +26,7 @@ protected $middlewareGroups = [
     ...
     'web' => [
         ...
-        \Voerro\Laravel\VisitorTracker\Middleware\RecordVisits::class,
+        \CodeMaster\Laravel\VisitorTracker\Middleware\RecordVisits::class,
     ],
     ...
 ];
@@ -38,7 +38,7 @@ protected $middlewareGroups = [
 ...
 'providers' => [
     ...
-    Voerro\Laravel\VisitorTracker\VisitorTrackerServiceProvider::class,
+    CodeMaster\Laravel\VisitorTracker\VisitorTrackerServiceProvider::class,
     ...
 ],
 ...
@@ -50,7 +50,7 @@ If you want to fetch and display the visitor statistics yourself register the fa
 ...
 'aliases' => [
     ...
-    'VisitStats' => Voerro\Laravel\VisitorTracker\Facades\VisitStats::class,
+    'VisitStats' => CodeMaster\Laravel\VisitorTracker\Facades\VisitStats::class,
     ...
 ],
 ...
@@ -62,7 +62,7 @@ If you want to fetch and display the visitor statistics yourself register the fa
 php artisan vendor:publish
 ```
 
-Choose `Voerro\Laravel\VisitorTracker\VisitorTrackerServiceProvider` in the provided list.
+Choose `CodeMaster\Laravel\VisitorTracker\VisitorTrackerServiceProvider` in the provided list.
 
 ## Installation - Geoapi
 
@@ -74,6 +74,11 @@ First, in your `.env` file you need to set:
 
 ```php
 QUEUE_DRIVER=database
+```
+
+Optionally, you can define a connection other than the default application connection
+```php
+VISITOR_TRACKER_CONNECTION=your_connection_name
 ```
 Then run these commands one after another:
 
@@ -147,8 +152,8 @@ This is the data that is being collected by the tracker.
 | ip | e.g. '127.0.0.1' |
 | method | e.g. 'GET' |
 | is_ajax | Whether the request is an AJAX request |
-| url | e.g. 'http://voerro.com' |
-| referer | e.g. 'http://google.com' |
+| url | e.g. 'http://codemastersolucoes.com' |
+| referer | e.g. 'http://voerro.com' |
 | user_agent | e.g. 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0' |
 | is_desktop | Whether the request is made from a desktop |
 | is_mobile | Whether the request is made from a mobile device |
@@ -172,7 +177,7 @@ The package uses `piwik/device-detector` to parse the user agent.
 
 ## Manually Fetching and Displaying Statistics
 
-In case you are not content with the provided views, you can use the `Voerro\Laravel\VisitorTracker\Facades\VisitStats` class to fetch the statistics data and then make your own controller and views to display this data.
+In case you are not content with the provided views, you can use the `CodeMaster\Laravel\VisitorTracker\Facades\VisitStats` class to fetch the statistics data and then make your own controller and views to display this data.
 
 Take a look at the controller located at `src/Controllers/StatisticsController.php` to understand how to work with the class, it's pretty simple. The original class is located at `src/VisitStats.php` and all the methods inside are documented, in case you need more insights.
 

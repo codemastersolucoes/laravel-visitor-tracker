@@ -8,6 +8,9 @@ use CodeMaster\Laravel\VisitorTracker\Facades\VisitStats;
 
 class StatisticsController
 {
+    /**
+     * @return array
+     */
     protected function viewSettings()
     {
         return [
@@ -16,6 +19,9 @@ class StatisticsController
         ];
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function summary()
     {
         $visits24h = VisitStats::query()->visits()
@@ -58,6 +64,9 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function allRequests()
     {
         return view('visitstats::visits', array_merge([
@@ -70,6 +79,9 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function visits()
     {
         return view('visitstats::visits', array_merge([
@@ -83,6 +95,9 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function ajaxRequests()
     {
         return view('visitstats::visits', array_merge([
@@ -96,6 +111,9 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bots()
     {
         return view('visitstats::visits', array_merge([
@@ -109,6 +127,9 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function loginAttempts()
     {
         return view('visitstats::visits', array_merge([
@@ -122,6 +143,12 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @param $view
+     * @param $groupBy
+     * @param $subtitle
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     protected function groupedVisits($view, $groupBy, $subtitle)
     {
         return view("visitstats::{$view}", array_merge([
@@ -136,36 +163,57 @@ class StatisticsController
         ], $this->viewSettings()));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function countries()
     {
         return $this->groupedVisits('countries', 'country_code', 'Countries');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function os()
     {
         return $this->groupedVisits('os', 'os_family', 'Operating Systems');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function browsers()
     {
         return $this->groupedVisits('browsers', 'browser_family', 'Browsers');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function languages()
     {
         return $this->groupedVisits('languages', 'browser_language_family', 'Languages');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function unique()
     {
         return $this->groupedVisits('unique', 'ip', 'Unique Visitors');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function users()
     {
         return $this->groupedVisits('users', 'user_id', 'Registered Users');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function urls()
     {
         return $this->groupedVisits('urls', 'url', 'URLs');

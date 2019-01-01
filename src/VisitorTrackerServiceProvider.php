@@ -54,7 +54,7 @@ class VisitorTrackerServiceProvider extends ServiceProvider
     }
 
     private function copy_directory($directory, $destiny, $see_action = false){
-        if ($destiny{strlen($destiny) - 1} == '/'){
+        if ($destiny{strlen($destiny) - 1} === '/'){
             $destiny = substr($destiny, 0, -1);
         }
 
@@ -62,13 +62,15 @@ class VisitorTrackerServiceProvider extends ServiceProvider
             if ($see_action){
                 echo "Creating directory {$destiny}\n";
             }
-            mkdir($destiny, 0755);
+            if (!mkdir($destiny, 0755) && !is_dir($destiny)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $destiny));
+            }
         }
 
         $folder = opendir($directory);
 
         while ($item = readdir($folder)){
-            if ($item == '.' || $item == '..'){
+            if ($item === '.' || $item === '..'){
                 continue;
             }
             if (is_dir("{$directory}/{$item}")){
@@ -77,7 +79,8 @@ class VisitorTrackerServiceProvider extends ServiceProvider
                 if ($see_action){
                     echo "Copying {$item} to {$destiny}"."\n";
                 }
-                copy("{$directory}/{$item}", "{$destiny}/{$item}");
+                if (!file_exists("{$destiny}/{$item}"))
+                    copy("{$directory}/{$item}", "{$destiny}/{$item}");
             }
         }
     }
